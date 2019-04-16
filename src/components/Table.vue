@@ -533,7 +533,8 @@ export default {
     },
 
     isTableLoading() {
-      return this.isLoading || this.tableLoading;
+      return false;
+      //return this.isLoading || this.tableLoading;
     },
 
     showEmptySlot() {
