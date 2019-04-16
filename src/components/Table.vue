@@ -7,19 +7,10 @@
     'black-rhino': theme==='black-rhino',
   }"
   >
-    <div
-      v-if="isTableLoading"
-      class="vgt-loading vgt-center-align"
-    >
-      <slot name="loadingContent">
-        <span class="vgt-loading__content">
-          Loading...
-        </span>
-      </slot>
-    </div>
+    
     <div
       class="vgt-inner-wrap"
-      :class="{'is-loading': isTableLoading}"
+      
     >
       <slot
         v-if="paginate && paginateOnTop"
@@ -975,7 +966,6 @@ export default {
       pageChangedEvent.prevPage = pagination.prevPage;
       this.$emit('on-page-change', pageChangedEvent);
       if (this.mode === 'remote') {
-        this.tableLoading = true;
       }
     },
 
@@ -984,7 +974,6 @@ export default {
       const perPageChangedEvent = this.pageChangedEvent();
       this.$emit('on-per-page-change', perPageChangedEvent);
       if (this.mode === 'remote') {
-        this.tableLoading = true;
       }
     },
 
@@ -998,7 +987,6 @@ export default {
       // if the mode is remote, we don't need to do anything
       // after this. just set table loading to true
       if (this.mode === 'remote') {
-        this.tableLoading = true;
         return;
       }
       this.sortChanged = true;
